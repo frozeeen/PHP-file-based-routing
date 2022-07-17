@@ -37,6 +37,8 @@ To create a dynamic url like `https://website.com/post?id=YOURPOSTID` we're goin
 ```python
 # Create a file
 Path: pages/post/[id].php
+
+# To access
 URL: https://website.com/post/YOURPOSTID
 ```
 and to access the value in our code, it's just like normal `$_GET`, the name between the brackets `[]` is the parameter name (they call this `slug`).
@@ -44,14 +46,14 @@ and to access the value in our code, it's just like normal `$_GET`, the name bet
 Showing post ID: <?php echo $_GET['id']; ?>
 ```
 
-#### Nexted Dynamic routing
+#### Nested Dynamic routing
 We can also create a folder to become our slug.
 ```python
 # Create folder an file
 Path: pages/post/[id]/edit.php
 URL: pages/post/YOURPOSTID/edit
 ```
-So the file structure will look like this, and let's add additional files.
+So the file structure will look like this and let's add additional files.
 ```
 pages/
 --post/

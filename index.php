@@ -1,28 +1,26 @@
 <?php
 	#|==================================
-	#| Initialize global settings
+	#| Global settings
 	#|==================================
 	define("ASSETS", "http://localhost/php-file-based-routing/assets");
+	define("ENTRY_FOLDER", "pages");
 
 	#|==================================
 	#| Initialize the query string
 	#|==================================
 	$REQUEST_URI = $_SERVER['QUERY_STRING'] == '' ? ['index'] : explode('/', $_SERVER['REQUEST_URI']);
 	$REQUEST_DEPTH = count($REQUEST_URI);
-	$REQUEST_COUNTED = 0;
-	$ENTRY_FOLDER = "pages";
 			
 	#|==================================
 	#| Find the page in the folder
 	#|==================================
-	$destination_path = $ENTRY_FOLDER;
+	$destination_path = ENTRY_FOLDER;
 	$current_type = 0; // 0 Folder | 1 File
 	$is_not_found = false;
 	for($r = ($_SERVER['QUERY_STRING'] == '') ? 0 : 2; $r < $REQUEST_DEPTH; $r++){
 		$part = $REQUEST_URI[$r];
 		if( $part == '' ) continue;
 
-		$REQUEST_COUNTED++;
 		$moving_path = ($destination_path . '/' . $part);
 
 		# Check if a raw file exist
@@ -97,7 +95,7 @@
 	if( file_exists($destination_path) && $is_not_found == false ){
 		require_once $destination_path;
 	}else{
-		require_once $ENTRY_FOLDER . "/404.php";
+		require_once ENTRY_FOLDER . "/404.php";
 	}
 
 	#|==================================
