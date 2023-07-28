@@ -13,7 +13,8 @@
 		<a href="your-awesome-page">Awesome page</a> |
 		<a href="post">Post</a> |
 		<a href="post/ABCDEFG">Show post</a> | 
-		<a href="user/@foobar">Show user</a>
+		<a href="auth">Auth</a> |
+		<a href="auth/nested">Invalid Auth</a>
 	</small>
 </body>
 </html>
