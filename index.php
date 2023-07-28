@@ -8,7 +8,7 @@
 	#|==================================
 	#| Initialize the query string
 	#|==================================
-	$REQUEST_URI = $_SERVER['QUERY_STRING'] == '' ? ['index'] : explode('/', $_SERVER['REQUEST_URI']);
+	$REQUEST_URI = $_SERVER['QUERY_STRING'] == '' ? ['index'] : explode('/', $_GET['__url__']);
 	$REQUEST_DEPTH = count($REQUEST_URI);
 			
 	#|==================================
@@ -17,7 +17,7 @@
 	$destination_path = ENTRY_FOLDER;
 	$current_type = 0; // 0 Folder | 1 File
 	$is_not_found = false;
-	for($r = ($_SERVER['QUERY_STRING'] == '') ? 0 : 2; $r < $REQUEST_DEPTH; $r++){
+	for($r = 0; $r < $REQUEST_DEPTH; $r++){
 		$part = $REQUEST_URI[$r];
 		if( $part == '' ) continue;
 
