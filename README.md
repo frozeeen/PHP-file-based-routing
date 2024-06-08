@@ -22,7 +22,7 @@ https://yourawesome.web/post/ABCDEFG12345
 
 The structure is very simple
 
-```python
+```php
 pages # This is where your pages will live
 assets # Maybe some of your CSS, JS and other assets
 index.php # And this is where some tiny-little-bit magic polynomial time happens, it's the router
@@ -31,11 +31,11 @@ index.php # And this is where some tiny-little-bit magic polynomial time happens
 
 ### How to use this?
 
-To use this, let's head into `pages` and make some files.
+To use this, let's head into `pages` folder and make some files.
 
 #### Static routing
 
-```python
+```shell
 Path: pages/your-awesome-page.php
 URL: http://website.com/your-awesome-page
 ```
@@ -44,15 +44,15 @@ URL: http://website.com/your-awesome-page
 
 To create a dynamic url like `https://website.com/post?id=YOURPOSTID` we're going to do it like this.
 
-```python
+```php
 # Create a file
-Path: pages/post/[id].php
+Path: pages/post/[id].get.php
 
 # To access
 URL: https://website.com/post/YOURPOSTID
 ```
 
-and to access the value in our code, it's just like normal `$_GET`, the name between the brackets `[]` is the parameter name (they call this `slug`).
+and to access the `id` inside our code, it's just like normal `$_GET`, the name between the brackets `[]` is the parameter or key (they call this `slug`).
 
 ```php
 Showing post ID: <?php echo $_GET['id']; ?>
@@ -63,20 +63,41 @@ Showing post ID: <?php echo $_GET['id']; ?>
 We can also create a folder to become our slug.
 
 ```python
-# Create folder an file
-Path: pages/post/[id]/edit.php
+Path: pages/post/[id]/edit.get.php
 URL: pages/post/YOURPOSTID/edit
 ```
 
-So the file structure will look like this and let's add additional files.
+So the file structure will look like this and let's add some additional files.
 
 ```
 pages/
---post/
-----[id]/
-------edit.php
-------show.php
-------delete.php
+  post/
+    [id]/
+      index.get.php
+      index.delete.php
+      edit.get.php
+```
+
+The following endpoints correspond to the files in the structure above:
+
+```php
+GET    /post/123
+DELETE /post/123
+GET    /post/123/edit
+```
+
+### Request method per file
+
+This is heavily inspired by the [`Nitro`](https://nitro.unjs.io/guide/routing) for mapping the request method per file.
+
+Each file is prefixed with the request method and has a .php file extension. For example, if we are creating CRUD functionality, the structure would look like this:
+
+```
+[id]/
+  index.get.php
+  index.post.php
+  index.put.php
+  index.delete.php
 ```
 
 #### Middleware
@@ -91,8 +112,8 @@ To create a middleware, create a file named **+middleware.php**.
 pages/
 --auth/
 ----+middleware.php
-----profile.php
-----index.php
+----profile.get.php
+----index.get.php
 ```
 
 In the file structure above when we try to access `/auth/profile` or any page inside the `/auth` folder, it will first run the **+middleware.php** script.

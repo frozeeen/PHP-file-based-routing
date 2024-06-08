@@ -20,6 +20,13 @@
 	$middleware_path = false;
 	$middleware_file_name = "+middleware.php";
 
+	# Check Request Method
+	$request_method = strtolower($_SERVER["REQUEST_METHOD"]);
+	$valid_request_methods = ["get", "post", "delete", "put", "patch"];
+	if( !in_array($request_method, $valid_request_methods) ){
+		$REQUEST_DEPTH = 0;
+	}
+
 	for($r = 0; $r < $REQUEST_DEPTH; $r++){
 		$part = $REQUEST_URI[$r];
 		$moving_path = ($destination_path . DIRECTORY_SEPARATOR . $part);
@@ -29,14 +36,14 @@
 			$middleware_path = $destination_path . DIRECTORY_SEPARATOR . $middleware_file_name;
 		}
 
+		# Check if a raw file exist
 		if( file_exists($moving_path . DIRECTORY_SEPARATOR . $middleware_file_name) ){
 			$middleware_path = $moving_path . DIRECTORY_SEPARATOR . $middleware_file_name;
 		}
 
 		if( $part == '' ) continue;
 
-		# Check if a raw file exist
-		$with_extension = str_contains($moving_path, '.') ? $moving_path : $moving_path . ".php";
+		$with_extension = str_contains($moving_path, '.') ? $moving_path : $moving_path . "." . $request_method . ".php";
 		if( file_exists($with_extension) ){
 			$destination_path = $with_extension;
 			$current_type = 1;
@@ -48,12 +55,12 @@
 			$destination_path = $moving_path;
 			$current_type = 0;
 
+		# Find the `[slug]`
 		}else{
-
-			# Find the `[slug]`
 			$is_slug_found = false;
 			$is_slugged = false;
 			$scanned_dir = scandir($destination_path);
+
 			for($i = 2, $x = count($scanned_dir); $i < $x; $i++){
 				if( str_contains($scanned_dir[$i], '[') ){
 
@@ -88,8 +95,9 @@
 	#|==================================
 	#| Check if the last iteration is already a file
 	#|==================================
-	if( $current_type == 0 && file_exists($destination_path . DIRECTORY_SEPARATOR . "index.php") ){
-		$destination_path .= ( DIRECTORY_SEPARATOR . "index.php" );
+	$index_file = "index.". $request_method .".php";
+	if( $current_type == 0 && file_exists($destination_path . DIRECTORY_SEPARATOR . $index_file) ){
+		$destination_path .= ( DIRECTORY_SEPARATOR . $index_file );
 	}else if( $current_type == 0 && $is_not_found == false ){
 		$is_not_found = true;
 	}

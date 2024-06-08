@@ -7,6 +7,6 @@
 	<script type="text/javascript" src="<?php echo ASSETS; ?>/app.js" ></script>
 </head>
 <body>
-	<div>Editing #<?php echo $_GET['id']; ?> post</div>
+	<div>Publishing Post...</div>
 </body>
 </html>
