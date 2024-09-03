@@ -15,7 +15,7 @@ https://yourawesome.web/post/ABCDEFG12345
 ### Installation
 
 1. Simply clone this project into your machine.
-2. Update the config inside the `index.php`.
+2. Update the config inside the `router/config.php`.
 3. and presto! all set.
 
 ### Structure
@@ -25,7 +25,8 @@ The structure is very simple
 ```php
 pages # This is where your pages will live
 assets # Maybe some of your CSS, JS and other assets
-index.php # And this is where some tiny-little-bit magic polynomial time happens, it's the router
+router # And, this is where some tiny-little-bit magic polynomial time happens, it's the router
+index.php # entry or fallback php file
 .htaccess # We don't talk about .htaccess -Dani
 ```
 
