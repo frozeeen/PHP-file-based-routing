@@ -3,8 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="<?php echo ASSETS; ?>/app.js" ></script>
+	<script type="text/javascript" src="<?php echo ASSETS; ?>/js/app.js" ></script>
+	<link rel="manifest" href="<?= ENTRY_URL ?>/manifest.json">
+    <meta name="theme-color" content="#0078D7">
 	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+        if ("seviceWorker" in Navigator) {
+            window.addEventListener("load", function() {
+                navigator.serviceWorker.register("<?= ENTRY_URL ?>/sw.js")
+            })
+        }
+    </script>
 </head>
 <body class="flex items-center justify-center h-screen w-screen" >
 	<section class="mx-auto p-12 border rounded-md space-y-6" >
