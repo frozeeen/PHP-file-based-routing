@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="<?php echo ASSETS; ?>/app.js" ></script>
+	<script type="text/javascript" src="<?php echo ASSETS; ?>/js/app.js" ></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center h-screen w-screen" >

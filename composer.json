@@ -1,0 +1,13 @@
+{
+    "name": "frozeen/filebasedrouting",
+    "description": "This package provides file based routing for your php papplications",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Frozeen\\Filebasedrouting\\": "src/"
+        }
+    },
+    "minimum-stability": "RC",
+    "require": {}
+}
