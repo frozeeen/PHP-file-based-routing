@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="<?php echo ASSETS; ?>/js/app.js" ></script>
-	<script src="https://cdn.tailwindcss.com"></script>
+	<?php useTemplate("head") ?>
 </head>
 <body class="flex items-center justify-center h-screen w-screen" >
 	<section class="mx-auto p-12 border rounded-md space-y-6" >
@@ -25,6 +22,8 @@
 				</div>
 			</div>
 		</div>
+
+		<hr>
 
 		<div>
 			<p>POST REQUEST</p>

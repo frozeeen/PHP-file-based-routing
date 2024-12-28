@@ -1,0 +1,19 @@
+body {
+  background: #eee;
+  font-size: 1.4rem;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #111;
+  text-align: center;
+  font-family: "Open sans", "arial";
+}
+
+.middleware {
+  font-size: small;
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+  padding: 1px solid gray;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}

@@ -2,8 +2,8 @@
 
 $host   = "localhost:3306";
 $dbname = "dbname";
-$user   = "dbusername"; 
-$pass   = "userpass";
+$user   = "root"; 
+$pass   = "";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
