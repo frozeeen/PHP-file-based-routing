@@ -1,1 +1,0 @@
-<div class="middleware" >[Global Middleware: /]</div>
