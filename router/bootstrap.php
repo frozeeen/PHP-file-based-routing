@@ -83,12 +83,12 @@
 						$_GET[substr($scanned_dir[$i], 1, -1)] = $part;
 						$destination_path = $destination_path . DIRECTORY_SEPARATOR . $scanned_dir[$i];
 						$current_type = FileType::DIRECTORY->value;
-
-					# Slug file
+						
+						# Slug file
 					}else if( $r == $REQUEST_DEPTH - 1 ){
 						$file_name = explode('.', $scanned_dir[$i])[0];
 						$_GET[substr($file_name, 1, -1)] = $part;
-						$destination_path = $destination_path . DIRECTORY_SEPARATOR . $scanned_dir[$i];
+						$destination_path = $destination_path . DIRECTORY_SEPARATOR . $file_name . '.' . $request_method . '.php';
 						$current_type = FileType::FILE->value;
 						$is_slugged = true;
 					}
