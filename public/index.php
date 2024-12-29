@@ -3,7 +3,7 @@
 	 * Require the entry of the router, which is used for finding the correct page in the `pages` folder
 	 * Also requireing the helpers, which contains functions like load templates and throw404
 	 */
-	require ".." . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.php";
+	require ".." . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "app.php";
 	require ".." . DIRECTORY_SEPARATOR . "router" . DIRECTORY_SEPARATOR . "helpers.php";
 	require ".." . DIRECTORY_SEPARATOR . "router" . DIRECTORY_SEPARATOR . "bootstrap.php";
 
