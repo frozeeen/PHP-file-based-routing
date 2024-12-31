@@ -8,6 +8,11 @@
 	require ".." . DIRECTORY_SEPARATOR . "router" . DIRECTORY_SEPARATOR . "bootstrap.php";
 
 	/**
+	 * Execute the router
+	 */
+	executeRouter($_GET['__url__'] ?? 'index', $_SERVER["REQUEST_METHOD"]);
+
+	/**
 	 * If your projects needs to use composer, you can include it here if you want it global
 	 * https://getcomposer.org/
 	 */
