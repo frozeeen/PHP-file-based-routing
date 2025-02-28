@@ -15,7 +15,7 @@ https://yourawesome.web/post/ABCDEFG12345
 ### Installation
 
 1. Simply clone this project into your machine.
-2. Update the config inside the `router/app.php`.
+2. Update the config inside the `config/app.php`.
 3. and presto! all set.
 
 ### Structure
@@ -103,7 +103,7 @@ Each file is prefixed with the request method and has a .php file extension. For
 ├── index.delete.php
 ```
 
-#### Middleware
+### Middleware
 
 Yet another very simple middleware.
 
