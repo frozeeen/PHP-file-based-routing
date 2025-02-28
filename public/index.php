@@ -8,17 +8,17 @@
 	require ".." . DIRECTORY_SEPARATOR . "router" . DIRECTORY_SEPARATOR . "bootstrap.php";
 
 	/**
-	 * Execute the router
-	 */
-	executeRouter($_GET['__url__'] ?? 'index', $_SERVER["REQUEST_METHOD"]);
-
-	/**
 	 * If your projects needs to use composer, you can include it here if you want it global
 	 * https://getcomposer.org/
 	 */
-	// require "vendor/autoload.php";
+	// require ".." . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php";
 
 	/**
 	 * Some configurations and database connections if you needed some
 	 */
-	// require "config/connection.php";
+	// require ".." . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "connection.php";
+
+	/**
+	 * Execute the router
+	 */
+	executeRouter($_GET['__url__'] ?? 'index', $_SERVER["REQUEST_METHOD"]);
